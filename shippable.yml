@@ -2,9 +2,9 @@ language: node_js
 
 # Version number
 node_js:
-  - 6.14 #.2 
-  - 8.11 #.3 
-  - 10.6 #.0
+  - 6.14 #.2 (npm 5.6.0) 
+  - 8.11 #.3 (npm 5.6.0) 
+  - 10.6 #.0 (npm 6.1.0)
 
 runtime:
   nodePool: dynamic__x86_64__CentOS_7__c4_large
@@ -12,11 +12,12 @@ runtime:
 build:
   pre_ci_boot:
     image_name: drydock/c7nodall
-    image_tag: master
+    image_tag: v6.7.4
     pull: true
     
   ci:
     - node --version
+    - npm --version
     - docker pull shippabledocker/sample_node_pvt:ecr
     
 integrations:
